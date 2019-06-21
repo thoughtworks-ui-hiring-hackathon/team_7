@@ -55,7 +55,8 @@ export default {
         }
     },
     components: {
-      MovieModal
+      MovieModal,
+      movieCard
     },
     computed:{
       // mostWatchedMoviews() {

@@ -23,13 +23,11 @@
 
 <script>
 
-import Home from "./Home.vue";
 
 export default {
     name: 'movieCard',
     data() {
         return {
-            activeName: 'Home',
             generes:[]
         }
     },
