@@ -46,81 +46,79 @@ export default {
     data() {
         return {
             API_KEY: "8dd67f39ba8c6c6b8f70d20802600856",
-            // latestMovies: [],
-            // trendingMovies: [],
-            // mostWatchedMoviews: [],
-            // movieGeneres: [],
+            latestMovies: [],
+            trendingMovies: [],
+            mostWatchedMoviews: [],
+            movieGeneres: [],
             modalVisibility: false,
             modalData: null
         }
-
     },
     components: {
-        movieCard,
-        MovieModal
+      MovieModal
     },
     computed:{
-      mostWatchedMoviews() {
-        return this.$store.getters.getMostWatchedMoviews;
-      },
-      trendingMovies() {
-        return this.$store.getters.getTrendingMovies;
-      },
-      latestMovies() {
-        return this.$store.getters.getLatestMovies;
-      },
-      movieGeneres() {
-        return this.$store.getters.getMovieGenres;
-      }
+      // mostWatchedMoviews() {
+      //   return this.$store.getters.getMostWatchedMoviews;
+      // },
+      // trendingMovies() {
+      //   return this.$store.getters.getTrendingMovies;
+      // },
+      // latestMovies() {
+      //   return this.$store.getters.getLatestMovies;
+      // },
+      // movieGeneres() {
+      //   return this.$store.getters.getMovieGenres;
+      // }
     },
     created() {
 
 
-        // axios({
-        //     method: "get",
-        //     url: `https://api.themoviedb.org/3/genre/movie/list?api_key=${this.API_KEY}&language=en-US `,
-        //     headers: {}
-        // }).then(response => {
-        //     console.log(response);
-        //     this.movieGeneres = response.data.genres;
-        // }).catch(err => {
-        //     console.error("Err", err);
-        // })
-        // axios({
-        //     method: "get",
-        //     url: `https://api.themoviedb.org/3/trending/movie/week?api_key=${this.API_KEY}`,
-        //     headers: {}
-        // }).then(response => {
-        //     console.log(response);
-        //     this.trendingMovies = response.data.results;
-        // }).catch(err => {
-        //     console.error("Err", err);
-        // })
-        // axios({
-        //     method: "get",
-        //     url: `https://api.themoviedb.org/3/movie/now_playing?api_key=${this.API_KEY}&language=en-US&include_adult=false`,
-        //     headers: {}
-        // }).then(response => {
-        //     console.log(response);
-        //     this.latestMovies = response.data.results;
-        // }).catch(err => {
-        //     console.error("Err", err);
-        // })
-        // axios({
-        //     method: "get",
-        //     url: `  https://api.themoviedb.org/3/movie/popular?api_key=${this.API_KEY}&language=en-US&page=1`,
-        //     headers: {}
-        // }).then(response => {
-        //     console.log(response);
-        //     this.mostWatchedMoviews = response.data.results;
-        // }).catch(err => {
-        //     console.error("Err", err);
-        // })
+        axios({
+            method: "get",
+            url: `https://api.themoviedb.org/3/genre/movie/list?api_key=${this.API_KEY}&language=en-US `,
+            headers: {}
+        }).then(response => {
+            console.log(response);
+            this.movieGeneres = response.data.genres;
+        }).catch(err => {
+            console.error("Err", err);
+        })
+        axios({
+            method: "get",
+            url: `https://api.themoviedb.org/3/trending/movie/week?api_key=${this.API_KEY}`,
+            headers: {}
+        }).then(response => {
+            console.log(response);
+            this.trendingMovies = response.data.results;
+        }).catch(err => {
+            console.error("Err", err);
+        })
+        axios({
+            method: "get",
+            url: `https://api.themoviedb.org/3/movie/now_playing?api_key=${this.API_KEY}&language=en-US&include_adult=false`,
+            headers: {}
+        }).then(response => {
+            console.log(response);
+            this.latestMovies = response.data.results;
+        }).catch(err => {
+            console.error("Err", err);
+        })
+        axios({
+            method: "get",
+            url: `  https://api.themoviedb.org/3/movie/popular?api_key=${this.API_KEY}&language=en-US&page=1`,
+            headers: {}
+        }).then(response => {
+            console.log(response);
+            this.mostWatchedMoviews = response.data.results;
+        }).catch(err => {
+            console.error("Err", err);
+        })
 
-        this.$store.dispatch("getMostWatchedMoviews");
-        this.$store.dispatch("getLatestMovies");
-        this.$store.dispatch("getTrendingMovies");
-        this.$store.dispatch("getMovieGenres");
+        // this.$store.dispatch("getMostWatchedMoviews");
+        // this.$store.dispatch("getLatestMovies");
+        // this.$store.dispatch("getTrendingMovies");
+        // this.$store.dispatch("getMovieGenres");
 
 
 

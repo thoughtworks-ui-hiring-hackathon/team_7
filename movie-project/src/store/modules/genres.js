@@ -3,7 +3,7 @@ export default {
     movieGeneres: []
   },
   getters: {
-    getMovieGenres() {
+    getMovieGenres(state) {
       return state.movieGeneres;
     }
   },
@@ -12,10 +12,10 @@ export default {
   },
   actions: {
     getMovieGenres({state, dispatch, rootState}){
-        dispatch("getAjaxData"{
+        dispatch("getAjaxData", {
           url: `https://api.themoviedb.org/3/genre/movie/list?api_key=${rootState.API_KEY}&language=en-US`
         }).then(response => {
-          Vue.set(state, "movieGeneres", response);
+          Vue.set(state, "movieGeneres", response.genres);
         }).catch(err => {})
     }
   }

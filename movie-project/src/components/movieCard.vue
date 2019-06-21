@@ -29,15 +29,20 @@ export default {
     name: 'movieCard',
     data() {
         return {
-            activeName: 'Home'
+            activeName: 'Home',
+            generes:[]
         }
     },
     computed: {
         ImgPath() {
             return `https://image.tmdb.org/t/p/original/${this.card.backdrop_path}`;
         }
+        // movieGeneres() {
+        //   return this.$store.getters.getMovieGenres;
+        // }
     },
-    props: ['card', 'movieGeneres'],
+
+    props: ['card', "movieGeneres"], //'movieGeneres'
     methods: {
         getMovieGeneres(ids) {
                 var generes = "";
